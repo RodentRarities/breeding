@@ -13,3 +13,7 @@ document.addEventListener("DOMContentLoaded", function () {
     overlay.classList.remove("show");
   });
 });
+
+document.querySelector('.hamburger').addEventListener('click', function() {
+  this.classList.toggle('open');
+});

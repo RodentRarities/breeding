@@ -88,7 +88,7 @@ html, body {
 }
 /*///////////////////////////////////////////////*/
 
-ul {
+uql {
   list-style-type: none;
 }
 a {
@@ -151,8 +151,11 @@ Navbar
 ===============
 */
 
-/* Navbar container */
-/* Hamburger icon outside of navbar */
+.hamburger:focus {
+  outline: none;
+}
+
+/* Hamburger styles */
 .hamburger {
   position: fixed;
   top: 1rem;
@@ -161,6 +164,36 @@ Navbar
   cursor: pointer;
   color: var(--clr-white);
   z-index: 1000; /* Above the overlay */
+  transition: transform 0.5s ease-in-out; /* Smooth transition */
+  outline: none; /* Remove the focus outline */
+}
+
+/* Shake and spin right on open */
+.hamburger.open i {
+  animation: spinRight 0.5s forwards, shake 0.3s ease-in-out;
+}
+
+/* Shake and spin left on close */
+.hamburger:not(.open) i {
+  animation: spinLeft 0.5s forwards, shake 0.3s ease-in-out;
+}
+
+/* Keyframes for spinning animations */
+@keyframes spinRight {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes spinLeft {
+  0% { transform: rotate(360deg); }
+  100% { transform: rotate(0deg); }
+}
+
+/* Keyframes for shaking */
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20%, 60% { transform: translateX(-10px); }
+  40%, 80% { transform: translateX(10px); }
 }
 
 /* Navbar container */
@@ -277,7 +310,7 @@ section {
     padding: 2rem 5%;
     margin: 1rem auto;
     max-width: 1200px;
-    background: white;
+    background: gray;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
@@ -332,4 +365,13 @@ h2 {
 
 .contact a:hover {
     text-decoration: underline;
+}
+
+.p2 {
+  color: black;
+}
+
+.cpr {
+  text-align: center;
+  color: black;
 }
